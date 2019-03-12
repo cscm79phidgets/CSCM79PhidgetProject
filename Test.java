@@ -169,21 +169,22 @@ public class Test {
 		 System.out.println("waiting for InterfaceKit attachment...");
 		 ik.waitForAttachment();
                  while (true) {
-//                     	boolean tagGained = rfid.getTagStatus();
-//			if (tagGained = true) {
-//                            ik.setOutputState(0, true);
-//			}
-                 int sensorVal = ik.getSensorValue(5);
-//                 if (rfid.getLastTag().equals("0102389925")) {
+                                                            
+                    boolean tagGained = rfid.getTagStatus();
+                    while (rfid.getTagStatus()== true) {
+                        ik.setOutputState(0, true);
+                    }
+                    int sensorVal = ik.getSensorValue(5);
+//                  if (rfid.getLastTag().equals("0102389925")) {
 //                     ik.setOutputState(0, true);
 //                 }
-		 if (sensorVal < 5) {
-                    ik.setOutputState(0, true);
-                    processNum = 1;
-                 }
-                 else {
-                     ik.setOutputState(0, false);
-                 }
+                    if (sensorVal < 5) {
+                        ik.setOutputState(0, true);
+                        processNum = 1;
+                    }
+                    else {
+                      ik.setOutputState(0, false);
+                    }
                  
                  
 //
@@ -211,18 +212,21 @@ public class Test {
 //                    case 1:
 //                    	proFunc(rfid.getLastTag());//Use process function. Problem:have to put on a tag at the first
 //			break;
-//                    case 2:
-//			proFunc(rf2.getTag());//Use process function. Problem:have to put on a tag at the first
-//			break;
-//                    case 3:
-//			proFunc(rf3.getTag());//Use process function. Problem:have to put on a tag at the first
-//			break;
-//                    case 4:
-//			proFunc(rf4.getTag());//Use process function. Problem:have to put on a tag at the first
-//			break;
-//                    case 5:
-//			proFunc(rf5.getTag());//Use process function. Problem:have to put on a tag at the first
-//			break;
+//                    default: 
+//                        System.out.println(rfid.getLastTag());
+//                        break;
+////                    case 2:
+////			proFunc(rf2.getTag());//Use process function. Problem:have to put on a tag at the first
+////			break;
+////                    case 3:
+////			proFunc(rf3.getTag());//Use process function. Problem:have to put on a tag at the first
+////			break;
+////                    case 4:
+////			proFunc(rf4.getTag());//Use process function. Problem:have to put on a tag at the first
+////			break;
+////                    case 5:
+////			proFunc(rf5.getTag());//Use process function. Problem:have to put on a tag at the first
+////			break;
 //                    }
                  }
         }
