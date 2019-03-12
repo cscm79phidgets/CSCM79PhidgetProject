@@ -78,6 +78,7 @@ public class Test {
 	//String process led short tag = "010238999f"
 	public static void main(String args[]) throws Exception {
 		 ik = new InterfaceKitPhidget();
+                 
 //                 rfid = new RFIDPhidget();
                  RFIDPhidget rfid;
                  rfid = new RFIDPhidget();
@@ -171,9 +172,15 @@ public class Test {
                  while (true) {
                                                             
                     boolean tagGained = rfid.getTagStatus();
-                    while (rfid.getTagStatus()== true) {
-                        ik.setOutputState(0, true);
-                    }
+
+
+                    
+//                    if (rfid.getTag().equals("0102389925")) {
+//                        ik.setOutputState(0, true);
+//                        Thread.sleep(1000);
+//                        ik.setOutputState(0, false);
+//                        Thread.sleep(1000);
+//                    }
                     int sensorVal = ik.getSensorValue(5);
 //                  if (rfid.getLastTag().equals("0102389925")) {
 //                     ik.setOutputState(0, true);
@@ -182,6 +189,16 @@ public class Test {
                         ik.setOutputState(0, true);
                         processNum = 1;
                     }
+//                    if (rfid.getTagStatus()== true) {
+//                         String tag = rfid.getLastTag();
+//                        if(rfid.getLastTag().equals(No)){
+//                            System.out.println(tag);
+//                        }
+//                       
+//
+////                      
+//                    }
+                    
                     else {
                       ik.setOutputState(0, false);
                     }
