@@ -38,35 +38,10 @@ public class Test2 {
 		
 		Thread.sleep(1000);
 		while(true) {
-			rf1.setOnOff(true);
-			Thread.sleep(1000);
 			System.out.println(rf1.getTag());
-			rf1.setOnOff(false);
-			Thread.sleep(1000);
-			System.out.println(rf1.getTag());
-			rf2.setOnOff(true);
-			Thread.sleep(1000);
 			System.out.println(rf2.getTag());
-			rf2.setOnOff(false);
-			Thread.sleep(1000);
-			System.out.println(rf2.getTag());
-			rf3.setOnOff(true);
-			Thread.sleep(1000);
 			System.out.println(rf3.getTag());
-			rf3.setOnOff(false);
-			Thread.sleep(1000);
-			System.out.println(rf3.getTag());
-			rf4.setOnOff(true);
-			Thread.sleep(1000);
 			System.out.println(rf4.getTag());
-			rf4.setOnOff(false);
-			Thread.sleep(1000);
-			System.out.println(rf4.getTag());
-			rf5.setOnOff(true);
-			Thread.sleep(1000);
-			System.out.println(rf5.getTag());
-			rf5.setOnOff(false);
-			Thread.sleep(1000);
 			System.out.println(rf5.getTag());
 		}
 			

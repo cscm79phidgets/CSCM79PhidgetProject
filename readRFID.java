@@ -70,6 +70,7 @@ public class readRFID {
 	
 	public String getTag() throws Exception {
 		String tagString = "";
+		this.setOnOff(true);
 		if(rfid.getTagStatus()) {
 			try {
 				tagString = rfid.getLastTag();
@@ -77,15 +78,18 @@ public class readRFID {
 				e.printStackTrace();
 			}
 		}
+		this.setOnOff(false);
 		return tagString;
 	}
 	
-	public void setOnOff(boolean OnOff) throws PhidgetException {
+	public void setOnOff(boolean OnOff) throws PhidgetException, InterruptedException {
 		rfid.setAntennaOn(OnOff);
 		if(OnOff) {
 			System.out.println("set on");
+			Thread.sleep(500);
 		}else {
 			System.out.println("set off");
+			Thread.sleep(500);
 		}
 	}
 	
