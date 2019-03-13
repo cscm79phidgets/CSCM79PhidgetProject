@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="phidget21">
     <CLASSES>
-      <root url="jar://P:/Downloads/phidget21jar_2.1.9.20180622/phidget21.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/phidget21.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
