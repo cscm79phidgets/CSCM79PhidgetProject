@@ -1,8 +1,10 @@
+package project1;
+
 import com.phidgets.*;
 import com.phidgets.event.*;
 
 public class readRFID {
-static //	public String theRFIDNumber;
+ //	public String theRFIDNumber;
 	RFIDPhidget rfid;
 	
 	public readRFID(int theRFIDSerial) throws Exception {
@@ -33,7 +35,7 @@ static //	public String theRFIDNumber;
 		
 		rfid.open(theRFIDSerial);
 		rfid.waitForAttachment();
-		System.out.println("working");
+		System.out.println("working"+theRFIDSerial);
 	}
 	public readRFID() throws Exception {
 		//RFIDPhidget rfid;
@@ -61,11 +63,12 @@ static //	public String theRFIDNumber;
 			}
 		});
 		rfid.openAny();
-		rfid.waitForAttachment(1000);
+		rfid.waitForAttachment();
 		System.out.println("working");
+		
 	}
 	
-	public static String getTag() throws Exception {
+	public String getTag() throws Exception {
 		String tagString = "";
 		if(rfid.getTagStatus()) {
 			try {
@@ -75,6 +78,15 @@ static //	public String theRFIDNumber;
 			}
 		}
 		return tagString;
+	}
+	
+	public void setOnOff(boolean OnOff) throws PhidgetException {
+		rfid.setAntennaOn(OnOff);
+		if(OnOff) {
+			System.out.println("set on");
+		}else {
+			System.out.println("set off");
+		}
 	}
 	
 //	public static String getRFIDNumber() {

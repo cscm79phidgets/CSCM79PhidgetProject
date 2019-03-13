@@ -1,3 +1,4 @@
+package project1;
 import com.phidgets.*;
 import com.phidgets.event.AttachEvent;
 import com.phidgets.event.AttachListener;
@@ -39,7 +40,7 @@ public class InterFaceKit {
 		 });
 		 ik.addOutputChangeListener(new OutputChangeListener() {
 		 public void outputChanged(OutputChangeEvent oe) {
-		 System.out.println(oe);
+//		 System.out.println(oe);
 		 }
 		 });
 		 ik.addSensorChangeListener(new SensorChangeListener() {
@@ -50,27 +51,7 @@ public class InterFaceKit {
 		 ik.openAny();
 		 System.out.println("waiting for InterfaceKit attachment...");
 		 ik.waitForAttachment();
-//
-		 while (true) {
-                    int sensorVal = ik.getSensorValue(5);
-		    if (sensorVal <5) {
-                        ik.setOutputState(0, true);
-                    }
-                    else ik.setOutputState(0, false);
-		 }	
 	}
-        
-//        public static void main(String args[]) throws Exception {
-//            ik.openAny();
-//            ik.waitForAttachment();
-//            int sense = ik.getSensorValue(5);
-//            if (sense < 5) {
-//                ik.setOutputState(0, true);
-//                
-//            }
-//            else ik.setOutputState(0, false);
-//            ik.close();
-//        }
 	public InterFaceKit(int serialNo) throws PhidgetException {
 		InterfaceKitPhidget ik = new InterfaceKitPhidget();
 		//BEGIN INTERFACE LISTENER SECTION
