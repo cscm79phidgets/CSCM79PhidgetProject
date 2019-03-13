@@ -1,4 +1,3 @@
-package project1;
 import com.phidgets.*;
 import com.phidgets.event.AttachEvent;
 import com.phidgets.event.AttachListener;

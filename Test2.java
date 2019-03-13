@@ -1,5 +1,3 @@
-package project1;
-
 import com.phidgets.*;
 import com.phidgets.event.*;
 
@@ -23,27 +21,27 @@ public class Test2 {
 	 * problem:
 	 * 		1.if set multipul RFIDsensor, they have to be attached
 	 */
-	public static void main(String args[]) throws Exception {
-		//set new RFID
-		readRFID rf1 = new readRFID(RFIDNum[1]);
-		rf1.setOnOff(false);
-		readRFID rf2 = new readRFID(RFIDNum[2]);
-		rf2.setOnOff(false);
-		readRFID rf3 = new readRFID(RFIDNum[3]);
-		rf3.setOnOff(false);
-		readRFID rf4 = new readRFID(RFIDNum[4]);
-		rf4.setOnOff(false);
-		readRFID rf5 = new readRFID(RFIDNum[5]);
-		rf5.setOnOff(false);
-		
-		Thread.sleep(1000);
-		while(true) {
-			System.out.println(rf1.getTag());
-			System.out.println(rf2.getTag());
-			System.out.println(rf3.getTag());
-			System.out.println(rf4.getTag());
-			System.out.println(rf5.getTag());
-		}
-			
-	}
+//	public static void main(String args[]) throws Exception {
+//		//set new RFID
+//		readRFID rf1 = new readRFID(RFIDNum[1]);
+//		rf1.setOnOff(false);
+//		readRFID rf2 = new readRFID(RFIDNum[2]);
+//		rf2.setOnOff(false);
+//		readRFID rf3 = new readRFID(RFIDNum[3]);
+//		rf3.setOnOff(false);
+//		readRFID rf4 = new readRFID(RFIDNum[4]);
+//		rf4.setOnOff(false);
+//		readRFID rf5 = new readRFID(RFIDNum[5]);
+//		rf5.setOnOff(false);
+//
+//		Thread.sleep(1000);
+//		while(true) {
+//			System.out.println(rf1.getTag());
+//			System.out.println(rf2.getTag());
+//			System.out.println(rf3.getTag());
+//			System.out.println(rf4.getTag());
+//			System.out.println(rf5.getTag());
+//		}
+//
+//	}
 }
