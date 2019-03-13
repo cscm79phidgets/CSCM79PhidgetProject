@@ -58,9 +58,9 @@ public class Test {
 	 */
 	public static void main(String args[]) throws Exception {
                 int a = RFIDNum[0];
-		readRFID rf1 = new readRFID(RFIDNum[0]);                
-		readRFID rf2 = new readRFID(RFIDNum[1]);
-		readRFID rf3 = new readRFID(RFIDNum[2]);
+//		readRFID rf1 = new readRFID(RFIDNum[0]);                
+//		readRFID rf2 = new readRFID(RFIDNum[1]);
+//		readRFID rf3 = new readRFID(RFIDNum[2]);
 		readRFID rf4 = new readRFID(RFIDNum[3]);
 //		readRFID rf5 = new readRFID();//set new RFID
 		
@@ -75,15 +75,15 @@ public class Test {
 			}
 			touchSensor = ik.GetIKValue(6);
 			switch(processNum) {
-			case 1:
-				proFunc(rf1.getTag());//Use process function. Problem:have to put on a tag at the first
-				break;
-			case 2:
-				proFunc(rf2.getTag());//Use process function. Problem:have to put on a tag at the first
-				break;
-			case 3:
-				proFunc(rf3.getTag());//Use process function. Problem:have to put on a tag at the first
-				break;
+//			case 1:
+//				proFunc(rf1.getTag());//Use process function. Problem:have to put on a tag at the first
+//				break;
+//			case 2:
+//				proFunc(rf2.getTag());//Use process function. Problem:have to put on a tag at the first
+//				break;
+//			case 3:
+//				proFunc(rf3.getTag());//Use process function. Problem:have to put on a tag at the first
+//				break;
 			case 4:
 				proFunc(rf4.getTag());//Use process function. Problem:have to put on a tag at the first
 				break;
