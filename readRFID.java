@@ -2,9 +2,9 @@ import com.phidgets.*;
 import com.phidgets.event.*;
 
 public class readRFID {
- //	public String theRFIDNumber;
+	//	public String theRFIDNumber;
 	RFIDPhidget rfid;
-	
+
 	public readRFID(int theRFIDSerial) throws Exception {
 		//RFIDPhidget rfid;
 		rfid = new RFIDPhidget();
@@ -30,7 +30,7 @@ public class readRFID {
 				System.out.println("error event for " + ee);
 			}
 		});
-		
+
 		rfid.open(theRFIDSerial);
 		rfid.waitForAttachment();
 		System.out.println("working"+theRFIDSerial);
@@ -63,9 +63,9 @@ public class readRFID {
 		rfid.openAny();
 		rfid.waitForAttachment();
 		System.out.println("working");
-		
+
 	}
-	
+
 	public String getTag() throws Exception {
 		String tagString = "";
 		this.setOnOff(true);
@@ -79,7 +79,7 @@ public class readRFID {
 		this.setOnOff(false);
 		return tagString;
 	}
-	
+
 	public void setOnOff(boolean OnOff) throws PhidgetException, InterruptedException {
 		rfid.setAntennaOn(OnOff);
 		if(OnOff) {
@@ -90,7 +90,7 @@ public class readRFID {
 			Thread.sleep(500);
 		}
 	}
-	
+
 //	public static String getRFIDNumber() {
 //		return theRFIDNumber;
 //	}
