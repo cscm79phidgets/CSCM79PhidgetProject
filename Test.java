@@ -73,7 +73,6 @@ public class Test {
                 touchSensor = ik.GetIKValue(6);//Push touch sensor to start
                 processNum = 1;//reset program
             }
-            touchSensor = ik.GetIKValue(6);
             switch(processNum) {
                 case 1:
                     proFunc(rf1.getTag());//Use process function. Problem:have to put on a tag at the first
