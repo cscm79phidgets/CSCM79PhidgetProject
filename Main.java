@@ -22,90 +22,109 @@ public class Main {
 	static final String endProgram = "01069341ed";
 	static final String yes = "01069339f7";
 	static final String no = "0106935187";
-	
+
 	//process function
 	private static void proFunc(String a) throws InterruptedException, PhidgetException {
 		switch(a) {
-		case process1://turn light on
-			ik.SetOut(0, true);
-			break;
-		case process2://turn light off
-			ik.SetOut(0,false);	
-			break;
-		case process3://light flash slow
-			ik.SetOut(0, true);
-			Thread.sleep(1000);
-			ik.SetOut(0, false);
-			Thread.sleep(1000);
-			break;
-		case process4://light flash fast
-			ik.SetOut(0, true);
-			Thread.sleep(250);
-			ik.SetOut(0, false);
-			Thread.sleep(250);
-			break;
-		case decision://decision making to switch 
-			if(ik.GetIKValue(0)<20) {//initial value is 999, it will turn to 0 when push it
-				processNum += 2;
-			}
-			System.out.println("step"+processNum);
-			break;
-		case process5://controll motor
-			motor.setMotor(0, 10);
-			motor.setMotor(1, 10);
-			Thread.sleep(500);
-			motor.setMotor(0, 10);
-			motor.setMotor(1, 170);
-			Thread.sleep(500);
-			motor.setMotor(0, 170);
-			motor.setMotor(1, 170);
-			Thread.sleep(500);
-			motor.setMotor(0, 170);
-			motor.setMotor(1, 10);
-			Thread.sleep(500);
-			motor.setMotor(0, 10);
-			motor.setMotor(1, 10);
-			Thread.sleep(500);
-			motor.setMotor(0, 90);
-			motor.setMotor(1, 90);
-			break;
-		case process6:
-			motor.setMotor(0, 10);
-			motor.setMotor(1, 10);
-			Thread.sleep(500);
-			motor.setMotor(0, 170);
-			motor.setMotor(1, 10);
-			Thread.sleep(500);
-			motor.setMotor(0, 170);
-			motor.setMotor(1, 170);
-			Thread.sleep(500);
-			motor.setMotor(0, 10);
-			motor.setMotor(1, 170);
-			Thread.sleep(500);
-			motor.setMotor(0, 10);
-			motor.setMotor(1, 10);
-			Thread.sleep(500);
-			motor.setMotor(0, 90);
-			motor.setMotor(1, 90);
-			break;
-		case process11:
-			lcd.SetString("LED Function");
-			break;
-		case process12:
-			lcd.SetString("Servo Motor Function");
-			break;
-		case process13:
-			lcd.SetString("Combine Function");
-			break;
-		default:
-			System.out.println("Waiting");
-			Thread.sleep(500);
-			break;
+			case process1://turn light on
+				lcd.SetString("Turn Light On");
+				ik.SetOut(0, true);
+				break;
+			case process2://turn light off
+				lcd.SetString("Turn Light Off");
+				ik.SetOut(0,false);
+				break;
+			case process3://light flash slow
+				lcd.SetString("Light Flash Slow");
+				for(int i=0;i<3;++i) {
+					ik.SetOut(0, true);
+					Thread.sleep(750);
+					ik.SetOut(0, false);
+					Thread.sleep(750);
+				}
+				break;
+			case process4://light flash fast
+				lcd.SetString("Light Flash Fast");
+				for(int i=0;i<3;++i) {
+					ik.SetOut(0, true);
+					Thread.sleep(250);
+					ik.SetOut(0, false);
+					Thread.sleep(250);
+				}
+				break;
+			case decision://decision making to switch
+				lcd.SetString("Decision");
+//			Thread.sleep(500);
+//			while(ik.GetIKValue(0)<20) {
+//			}
+//			lcd.SetString("Hello World");
+				Thread.sleep(500);
+				if(ik.GetIKValue(0)<20) {//initial value is 999, it will turn to 0 when push it
+					processNum += 2;
+					lcd.SetString("Pressing(No)");
+				}else {
+					lcd.SetString("Pressing(Yes)");
+				}
+				System.out.println("step"+processNum);
+				break;
+			case process5://controll motor
+				lcd.SetString("Clockwise Turning");
+				motor.setMotor(0, 10);
+				motor.setMotor(1, 10);
+				Thread.sleep(500);
+				motor.setMotor(0, 10);
+				motor.setMotor(1, 170);
+				Thread.sleep(500);
+				motor.setMotor(0, 170);
+				motor.setMotor(1, 170);
+				Thread.sleep(500);
+				motor.setMotor(0, 170);
+				motor.setMotor(1, 10);
+				Thread.sleep(500);
+				motor.setMotor(0, 10);
+				motor.setMotor(1, 10);
+				Thread.sleep(500);
+				motor.setMotor(0, 90);
+				motor.setMotor(1, 90);
+				break;
+			case process6:
+				lcd.SetString("AnticlockwiseTurning");
+				motor.setMotor(0, 10);
+				motor.setMotor(1, 10);
+				Thread.sleep(500);
+				motor.setMotor(0, 170);
+				motor.setMotor(1, 10);
+				Thread.sleep(500);
+				motor.setMotor(0, 170);
+				motor.setMotor(1, 170);
+				Thread.sleep(500);
+				motor.setMotor(0, 10);
+				motor.setMotor(1, 170);
+				Thread.sleep(500);
+				motor.setMotor(0, 10);
+				motor.setMotor(1, 10);
+				Thread.sleep(500);
+				motor.setMotor(0, 90);
+				motor.setMotor(1, 90);
+				break;
+			case process11:
+				lcd.SetString("LED Function");
+				break;
+			case process12:
+				lcd.SetString("Servo Motor Function");
+				break;
+			case process13:
+				lcd.SetString("Combine Function");
+				break;
+			default:
+				System.out.println("Waiting");
+				Thread.sleep(500);
+				break;
 		}
 
-			
+
 	}
-//Main-------------------------------------------------------------------------------------------------
+	//Main-------------------------------------------------------------------------------------------------
 	/*
 	 * problem:
 	 * 		1.if set multipul RFIDsensor, they have to be attached
@@ -129,36 +148,38 @@ public class Main {
 		int touchSensor = ik.GetIKValue(6);
 		while(true) {
 			switch(processNum) {
-			case 1:
-				System.out.println("1");
-				proFunc(rf1.getTag());//Use process function. Problem:have to put on a tag at the first
-				processNum++;
-				break;
-			case 2:
-				System.out.println("2");
-				proFunc(rf2.getTag());//Use process function. Problem:have to put on a tag at the first
-				processNum++;
-				break;
-			case 3:
-				System.out.println("3");
-				proFunc(rf3.getTag());//Use process function. Problem:have to put on a tag at the first
-				processNum+= 50;
-				break;
-			case 4:
-				System.out.println("4");
-				proFunc(rf4.getTag());//Use process function. Problem:have to put on a tag at the first
-				processNum++;
-				break;
-			case 5:
-				System.out.println("5");
-				proFunc(rf5.getTag());//Use process function. Problem:have to put on a tag at the first
-				processNum++;
-				break;
-			default:
-				processNum = 1;
+				case 1:
+					System.out.println("1");
+					proFunc(rf1.getTag());//Use process function. Problem:have to put on a tag at the first
+					processNum++;
+					break;
+				case 2:
+					System.out.println("2");
+					proFunc(rf2.getTag());//Use process function. Problem:have to put on a tag at the first
+					processNum++;
+					break;
+				case 3:
+					System.out.println("3");
+					proFunc(rf3.getTag());//Use process function. Problem:have to put on a tag at the first
+					processNum+=5;
+					break;
+				case 4:
+					System.out.println("4");
+					proFunc(rf4.getTag());//Use process function. Problem:have to put on a tag at the first
+					processNum++;
+					break;
+				case 5:
+					System.out.println("5");
+					proFunc(rf5.getTag());//Use process function. Problem:have to put on a tag at the first
+					processNum++;
+					break;
+				default:
+					processNum = 1;
+					lcd.SetString("");
 			}
+
 //Use process function. Problem:have to put on a tag at the first
 		}
-			
+
 	}
 }
